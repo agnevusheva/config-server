@@ -1,9 +1,7 @@
 import os
 from app import app, db
 from models import Table, Item, Menu
-from sqlalchemy import inspect
-
-print("Current working directory:", os.getcwd())
+from sqlalchemy import ins
 
 with app.app_context():
     db.create_all()

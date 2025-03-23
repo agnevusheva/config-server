@@ -10,7 +10,6 @@ api = Api(app)
 if __name__ == '__main__':
     app.run(debug=True)
 
-# Import models
 from models import Table, Item, Menu
 
 if __name__ == '__main__':
