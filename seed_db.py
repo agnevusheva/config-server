@@ -1,5 +1,5 @@
 from app import app, db
-from models import Table, Item, Menu, ShapeEnum
+from app.models import TableSpot, Item, Menu, ShapeEnum
 from faker import Faker
 import random
 
@@ -12,14 +12,14 @@ def create_mock_data():
         db.drop_all()
         db.create_all()
 
-        for _ in range(10):
-            table = Table(
+        for _ in range(30):
+            table = TableSpot(
                 shape=random.choice([ShapeEnum.ROUND, ShapeEnum.SQUARE])
             )
             db.session.add(table)
 
         items = []
-        for _ in range(20):
+        for _ in range(40):
             item = Item(
                 name=fake.dish(),
                 price=round(random.uniform(1.0, 100.0), 2)

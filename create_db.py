@@ -1,6 +1,6 @@
 import os
 from app import app, db
-from models import Table, Item, Menu
+from app.models import TableSpot, Item, Menu
 from sqlalchemy import ins
 
 with app.app_context():

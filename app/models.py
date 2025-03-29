@@ -5,12 +5,12 @@ class ShapeEnum(Enum):
     ROUND = "round"
     SQUARE = "square"
 
-class Table(db.Model):
+class TableSpot(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     shape = db.Column(db.Enum(ShapeEnum), nullable=False)
 
     def __repr__(self):
-        return f'<Table {self.id} - {self.shape.value}>'
+        return f'<TableSpot {self.id} - {self.shape.value}>'
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
