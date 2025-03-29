@@ -19,14 +19,14 @@ def create_app():
         app.config['DEBUG'] = True
     else:
         app.config['DEBUG'] = False
-    api = Api()
+
+   
     db.init_app(app)
-    api.init_app(app)
     
     os.makedirs(app.instance_path, exist_ok=True)
 
 
-   
+    api = Api(app)
     from app.resources import ItemListResource, TableListResource
     api.add_resource(ItemListResource, '/items')
     api.add_resource(TableListResource, '/tables')
