@@ -10,6 +10,12 @@ def create_app():
     app = Flask(__name__)
     
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'data.db')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
+    if os.environ.get('FLASK_ENV') == 'development':
+        app.config['DEBUG'] = True
+    else:
+        app.config['DEBUG'] = False
     
     db.init_app(app)
     api.init_app(app)
