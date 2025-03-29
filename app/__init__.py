@@ -5,7 +5,6 @@ from flask_cors import CORS
 import os
 
 db = SQLAlchemy()
-api = Api()
 
 def create_app():
     app = Flask(__name__)
@@ -24,16 +23,19 @@ def create_app():
     api.init_app(app)
     
     os.makedirs(app.instance_path, exist_ok=True)
-    
+
+
+    api = Api()
     from app.resources import ItemListResource, TableListResource
     api.add_resource(ItemListResource, '/items')
     api.add_resource(TableListResource, '/tables')
 
     @app.route('/')
     def index():
-        print("Available routes:")
+        routes = []
         for rule in app.url_map.iter_rules():
-            print(f"{rule.endpoint}: {rule}")
-        return {"message": "API is running. Available endpoints: /items, /tables"}
+            routes.append(f"{rule.endpoint}: {rule}")
+        print(f"Routes: {routes}")
+        return {"message": "API is running", "routes": routes}
     
     return app

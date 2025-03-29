@@ -1,6 +1,7 @@
 from flask_restful import Resource
 from app.models import Item, TableSpot
 
+print("LOADING RESOURCES")
 class ItemListResource(Resource):
     def get(self):
         items = Item.query.all()
