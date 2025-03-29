@@ -5,6 +5,7 @@ from flask_cors import CORS
 import os
 
 db = SQLAlchemy()
+api = Api()
 
 def create_app():
     app = Flask(__name__)
@@ -25,7 +26,7 @@ def create_app():
     os.makedirs(app.instance_path, exist_ok=True)
 
 
-    api = Api()
+   
     from app.resources import ItemListResource, TableListResource
     api.add_resource(ItemListResource, '/items')
     api.add_resource(TableListResource, '/tables')
