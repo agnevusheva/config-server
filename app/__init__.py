@@ -14,6 +14,15 @@ def create_app():
     
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'data.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+   
+    @app.route('/')
+    def index():
+        print("Available routes:")
+        for rule in app.url_map.iter_rules():
+            print(f"{rule.endpoint}: {rule}")
+        return {"message": "API is running. Available endpoints: /items, /tables"}
+    index()
     
     if os.environ.get('FLASK_ENV') == 'development':
         app.config['DEBUG'] = True
