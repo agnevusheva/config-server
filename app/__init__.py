@@ -10,7 +10,11 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
 
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": [
+        "https://oms-front-pet-l6cp-git-main-alyonagns-projects.vercel.app/", 
+        "http://localhost:5173",                 
+                    
+    ]}})
     
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'data.db')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
