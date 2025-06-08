@@ -12,7 +12,7 @@ def create_app():
 
     CORS(app, resources={r"/*": {"origins": [
         "https://oms-front-pet-l6cp-git-main-alyonagns-projects.vercel.app/", 
-        "localhost:60001",   
+        "http://localhost:60001",   
         "https://oms-react-git-main-alyonagns-projects.vercel.app/"                           
     ]}})
     
