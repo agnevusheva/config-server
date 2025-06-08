@@ -12,8 +12,8 @@ def create_app():
 
     CORS(app, resources={r"/*": {"origins": [
         "https://oms-front-pet-l6cp-git-main-alyonagns-projects.vercel.app/", 
-        "http://localhost:5173",                 
-                    
+        "localhost:60001",   
+        "https://oms-react-git-main-alyonagns-projects.vercel.app/"                           
     ]}})
     
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'data.db')
