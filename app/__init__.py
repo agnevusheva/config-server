@@ -11,9 +11,8 @@ def create_app():
     app = Flask(__name__)
 
     CORS(app, resources={r"/*": {"origins": [
-        "https://oms-front-pet-l6cp-git-main-alyonagns-projects.vercel.app/", 
-        "http://localhost:60001",   
-        "https://oms-react-git-main-alyonagns-projects.vercel.app/"                           
+        "https://omsexps.netlify.app/", 
+        "http://localhost:60001",                           
     ]}})
     
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'data.db')
