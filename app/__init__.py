@@ -11,7 +11,7 @@ def create_app():
     app = Flask(__name__)
 
     CORS(app, resources={r"/*": {"origins": [
-        "https://omsexps.netlify.app/", 
+        "https://omsexps.netlify.app", 
         "http://localhost:60001",                           
     ]}})
     
